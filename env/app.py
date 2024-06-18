@@ -1,6 +1,7 @@
 import re
 import random
 from flask import Flask, render_template, request, jsonify
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -40,8 +41,18 @@ class ChatBot:
             nonlocal highest_prob
             highest_prob[bot_response] = self.message_probability(message, list_of_words, single_response, required_words)
 
+        # Time-based greetings
+        current_hour = datetime.now().hour
+        if current_hour < 12:
+            greeting = 'Buenos días'
+        elif 12 <= current_hour < 18:
+            greeting = 'Buenas tardes'
+        else:
+            greeting = 'Buenas noches'
+
+        response(f'{greeting}! ¿Cómo puedo ayudarte hoy?', ['hola', 'klk', 'saludos', 'buenas'], single_response=True)
+
         # Basic responses
-        response('Hola! ¿Cómo puedo ayudarte hoy?', ['hola', 'klk', 'saludos', 'buenas'], single_response=True)
         response('Estoy bien, ¿y tú?', ['cómo', 'estás', 'va', 'vas', 'sientes'], required_words=['cómo'])
         response('Estamos ubicados en la calle 23 número 123.', ['ubicados', 'dirección', 'dónde', 'ubicación'], single_response=True)
         response('Siempre a la orden.', ['gracias', 'te lo agradezco', 'thanks'], single_response=True)
@@ -51,6 +62,15 @@ class ChatBot:
         response('Mi color favorito es el azul. ¿Cuál es el tuyo?', ['cuál', 'es', 'tu', 'color', 'favorito'], required_words=['color'])
         response('Me gusta la pizza, ¿y a ti?', ['qué', 'te', 'gusta', 'comer'], required_words=['gusta'])
         response('Trabajo como asistente virtual. ¿En qué trabajas tú?', ['a', 'qué', 'te', 'dedicas', 'trabajas'], required_words=['trabajas'])
+
+        # New responses
+        response('Me encanta jugar al fútbol. ¿Y a ti?', ['qué', 'te', 'gusta', 'hacer', 'hobbies', 'pasatiempos'], required_words=['gusta', 'hacer'])
+        response('Mi película favorita es Inception. ¿Cuál es la tuya?', ['cuál', 'es', 'tu', 'película', 'favorita'], required_words=['película'])
+        response('Prefiero los gatos. ¿Tienes mascotas?', ['prefieres', 'perros', 'gatos', 'mascotas'], required_words=['mascotas'])
+        response('La inteligencia artificial es un campo fascinante. ¿Qué piensas sobre la tecnología?', ['qué', 'piensas', 'sobre', 'tecnología'], required_words=['tecnología'])
+        response('Creo que la salud mental es muy importante. ¿Qué opinas?', ['qué', 'piensas', 'sobre', 'salud', 'mental'], required_words=['salud', 'mental'])
+        response('Me gusta aprender sobre historia. ¿Qué asignatura te gusta más?', ['cuál', 'es', 'tu', 'asignatura', 'favorita'], required_words=['asignatura', 'favorita'])
+        response('La programación es divertida. ¿Qué lenguaje de programación prefieres?', ['qué', 'lenguaje', 'programación', 'prefieres'], required_words=['programación'])
 
         # Remembering context
         if 'nombre' in message:
