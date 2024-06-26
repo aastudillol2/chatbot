@@ -72,6 +72,18 @@ class ChatBot:
         response('Me gusta aprender sobre historia. ¿Qué asignatura te gusta más?', ['cuál', 'es', 'tu', 'asignatura', 'favorita'], required_words=['asignatura', 'favorita'])
         response('La programación es divertida. ¿Qué lenguaje de programación prefieres?', ['qué', 'lenguaje', 'programación', 'prefieres'], required_words=['programación'])
 
+        # Additional responses
+        response('Estoy aquí para ayudarte con tus estudios.', ['puedes', 'ayudarme', 'estudios'], required_words=['ayudarme', 'estudios'])
+        response('La capital de Francia es París.', ['cuál', 'es', 'la', 'capital', 'de', 'francia'], required_words=['capital', 'francia'])
+        response('El agua hierve a 100 grados Celsius.', ['a', 'qué', 'temperatura', 'hierve', 'el', 'agua'], required_words=['temperatura', 'hierve'])
+        response('La gravedad en la Tierra es 9.8 m/s².', ['cuál', 'es', 'la', 'gravedad', 'en', 'la', 'tierra'], required_words=['gravedad', 'tierra'])
+        response('El sol es una estrella.', ['qué', 'es', 'el', 'sol'], required_words=['sol'])
+        response('Las ballenas son mamíferos.', ['las', 'ballenas', 'son', 'mamíferos'], required_words=['ballenas', 'mamíferos'])
+        response('Hay siete continentes en el mundo.', ['cuántos', 'continentes', 'hay', 'en', 'el', 'mundo'], required_words=['continentes', 'mundo'])
+        response('El lenguaje más hablado en el mundo es el inglés.', ['cuál', 'es', 'el', 'lenguaje', 'más', 'hablado', 'en', 'el', 'mundo'], required_words=['lenguaje', 'hablado'])
+        response('La distancia de la Tierra al Sol es aproximadamente 150 millones de kilómetros.', ['cuál', 'es', 'la', 'distancia', 'de', 'la', 'tierra', 'al', 'sol'], required_words=['distancia', 'tierra', 'sol'])
+        response('La fórmula química del agua es H₂O.', ['cuál', 'es', 'la', 'fórmula', 'química', 'del', 'agua'], required_words=['fórmula', 'agua'])
+        
         # Remembering context
         if 'nombre' in message:
             user_name = ' '.join(message[message.index('nombre')+1:])
