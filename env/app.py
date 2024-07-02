@@ -82,7 +82,9 @@ class ChatBot:
         response('Hay siete continentes en el mundo.', ['cuántos', 'continentes', 'hay', 'en', 'el', 'mundo'], required_words=['continentes', 'mundo'])
         response('El lenguaje más hablado en el mundo es el inglés.', ['cuál', 'es', 'el', 'lenguaje', 'más', 'hablado', 'en', 'el', 'mundo'], required_words=['lenguaje', 'hablado'])
         response('La distancia de la Tierra al Sol es aproximadamente 150 millones de kilómetros.', ['cuál', 'es', 'la', 'distancia', 'de', 'la', 'tierra', 'al', 'sol'], required_words=['distancia', 'tierra', 'sol'])
-        response('La fórmula química del agua es H₂O.', ['cuál', 'es', 'la', 'fórmula', 'química', 'del', 'agua'], required_words=['fórmula', 'agua'])
+        response('La fórmula química del agua es H₂O.', ['cuál', 'es', 'la', 'fórmula', 'química', 'del', 'agua'], required_words=['fórmula', 'agua']),
+        response('cual es la capital de ecuador', ['cuál', 'es', 'la', 'capital', 'de', 'ecuador'], required_words=['capital', 'ecuador']),
+        response('La fórmula química del agua es oxigeno.', ['cuál', 'es', 'la', 'fórmula', 'química', 'del', 'oxigeno'], required_words=['fórmula', 'oxigeno'])
         
         # Remembering context
         if 'nombre' in message:
